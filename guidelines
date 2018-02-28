@@ -1,0 +1,16 @@
+
++++Guidelines for deployment +++++
+
+
+* Dockerfiles and any supporting files for the container to be in publically accessible and well documented github/gitlab repositories.
+* Containers built in quay.io and tagged
+    * You can use their built-in build pipeline
+    * The containers should be in private registries
+    * Should have automatic build triggers
+* The workflow should demonstrate a multi-tier application.  This can be based on something like the guestbook example app, but I expect your containers to be in quay.
+* Kubernetes deployment yaml manifests should be under source control.
+* A pull secret for your quay registry should be stored in kubernetes and referenced in your manifests.
+* Health checks for container health as part of the manifest.
+* Demonstrate a deployment, rollout update and then rollback.
+* Make a visible change to your frontend container and demonstrate the full workflow.
+
