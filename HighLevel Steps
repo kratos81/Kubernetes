@@ -1,0 +1,9 @@
+Install the minikube component 
+Create the quay.io account 
+Populate the quay repository with the 3 images needed for a the application ( Two versions of wordpress and one for mysql )  
+Ensure to integrate the imagePullsecret to enable pulls from the quay.io account 
+Create the kubernetes objects per the yaml files 
+Test and ensure the url works 
+Scale up and scale down 
+Update the wordpess image 
+Rollback to  a previous version 
