@@ -1,0 +1,36 @@
+***** Issues ****** 
+
+(1) * Minikube refusing to start cluster with error 
+
+ minikube start 
+Starting local Kubernetes v1.9.0 cluster...
+Starting VM...
+Getting VM IP address...
+Moving files into cluster...
+Setting up certs...
+Connecting to cluster...
+Setting up kubeconfig...
+Starting cluster components...
+Kubectl is now configured to use the cluster.
+Loading cached images from config file.
+6c4008be7492:.docker ofkenna$ kubectl get nodes 
+The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+
+WORKAROUND -> from the https://github.com/kubernetes/minikube/issues/2468
+- Stop , delete , reinstall 
+minikube stop && minikube delete && minikube start 
+
+
+(2) Docker refusing to build from Dockerfile ( hair pulling stuff!! ) 
+Error 
+Step 13/18 : VOLUME /var/lib/mysql
+ ---> Using cache
+ ---> d51d58a52cef
+Step 14/18 : COPY docker-entrypoint.sh /usr/local/bin/
+COPY failed: stat /var/lib/docker/tmp/docker-builder360415414/docker-entrypoint.
+
+Discussion about it here -> https://forums.docker.com/t/resolved-automated-docker-build-fails/22831/32
+
+WORKAROUND - Pull image from Docker and then push it to quay.io where they can be referenced by the imageSecret
+
+(3) Beacuse the dockerfile would not build , I couldnt set up the triggers for the repository and link it to github 
