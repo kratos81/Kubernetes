@@ -1,0 +1,24 @@
+
+
+Docker build and push 
+++++++++++++++++++++++
+
+docker tag wordpress:4.9-apache quay.io/kenna_ofoegbu/wordpress:4.9-apache
+docker tag wordpress:4.9-apache quay.io/kenna_ofoegbu/wordpress:4.9-apache
+
+docker push quay.io/kenna_ofoegbu/wordpress:4.8-apache
+docker push quay.io/kenna_ofoegbu/wordpress:4.9-apache
+
+docker pull quay.io/kenna_ofoegbu/wordpress:4.8-apache 
+docker pull quay.io/kenna_ofoegbu/wordpress:4.9-apache 
+
+
+
+
+Working with the deployments 
+++++++++++++++++++++++++++++
+kubectl set image deployments/wordpress wordpress=quay.io/kenna_ofoegbu/wordpress:4.9-apache
+kubectl scale deployments/wordpress --replicas=3 
+kubectl rollout status  deployments/wordpress 
+kubectl rollout history deployment/wordpress
+kubectl rollout undo deployment/wordpress 
