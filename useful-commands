@@ -23,6 +23,7 @@ kubectl rollout status  deployments/wordpress
 kubectl rollout history deployment/wordpress
 kubectl rollout undo deployment/wordpress 
 
+#adding this to test 
 +++++++++++++++++++++++++++
 Database secrets file 
 kubectl create secret generic mysql-pass --from-literal=password=kratos81 
